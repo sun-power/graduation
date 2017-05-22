@@ -1,0 +1,361 @@
+<%- include('head')%>
+<!--banner开始-->
+<div class="banner clearfix">
+  <div class="bannerIn">
+    <div class="banner-imgbox">
+      <img src="/images/banner1.png" alt="loading.."/>
+      <img src="/images/banner2.png" alt="loading.."/>
+      <img src="/images/banner3.png" alt="loading.."/>
+      <img src="/images/banner4.png" alt="loading..">
+      <img src="/images/banner5.png" alt="loading.."/>
+      <img src="/images/banner6.png" alt="loading.."/>
+    </div>
+    <span class="banner-imgbox-span1"><s class="s1"></s></span>
+    <span class="banner-imgbox-span2"><s class="s2"></s></span>
+    <ul class="banner-imgbox-ul">
+      <li>
+        <span class='banner-imgbox-span3'></span>
+      </li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+    <ul class="bannerIn-left">
+      <% for(var i = 0;i < classinfo.length; i++){ %>
+      <li>
+        <i class="bannerIn-li-i<%= i+1 %>i"></i><i class="bannerIn-li-i<%= i+1 %>"></i>
+        <a href="/spinfo"><%= classinfo[i].class_name %></a><i class="i13"></i>
+        <div class="li-div">
+          <dl class="clearfix li-div-dl">
+            <dt>新品生鲜<span>|</span></dt>
+            <% for(var j = 0; j <spclassinfo.length; j++){%>
+            <dd><a href="/spinfo"><%= spclassinfo[j].spclass_name %></a></dd>
+            <% } %>
+          </dl>
+          <dl class="clearfix li-div-dl">
+            <dt>饼干糕点<span>|</span></dt>
+            <dd><a href="/spinfo" class="dd-a">饼干</a></dd>
+            <dd><a href="/spinfo">曲奇</a></dd>
+            <dd><a href="/spinfo">威化</a></dd>
+            <dd><a href="/spinfo">夹心饼干</a></dd>
+            <dd><a href="/spinfo">苏打饼干</a></dd>
+            <dd><a href="/spinfo">传统糕点</a></dd>
+            <dd><a href="/spinfo" class="dd-a">酸奶</a></dd>
+            <dd><a href="/spinfo">西式糕点</a></dd>
+            <dd><a href="/spinfo">面包干</a></dd>
+          </dl>
+          <dl class="clearfix li-div-dl">
+            <dt>酒水饮料<span>|</span></dt>
+            <dd><a href="/spinfo">葡萄酒</a></dd>
+            <dd><a href="/spinfo">啤酒</a></dd>
+            <dd><a href="/spinfo" class="dd-a">洋酒</a></dd>
+            <dd><a href="/spinfo">起泡酒</a></dd>
+            <dd><a href="/spinfo" class="dd-a">水</a></dd>
+            <dd><a href="/spinfo">碳酸饮料</a></dd>
+            <dd><a href="/spinfo">果蔬汁</a></dd>
+            <dd><a href="/spinfo">咖啡</a></dd>
+            <dd><a href="/spinfo">果味饮料</a></dd>
+            <dd><a href="/spinfo">含乳饮料</a></dd>
+          </dl>
+          <dl class="clearfix li-div-dl">
+            <dt>休闲食品<span>|</span></dt>
+            <dd><a href="/spinfo" class="dd-a">坚果</a></dd>
+            <dd><a href="/spinfo">果干</a></dd>
+            <dd><a href="/spinfo">海苔</a></dd>
+            <dd><a href="/spinfo">膨化</a></dd>
+            <dd><a href="/spinfo">巧克力</a></dd>
+            <dd><a href="/spinfo">糖果</a></dd>
+            <dd><a href="/spinfo">果冻/布丁</a></dd>
+            <dd><a href="/spinfo">果干肉脯</a></dd>
+            <dd><a href="/spinfo">海味零食</a></dd>
+          </dl>
+          <dl class="clearfix li-div-dl">
+            <dt>粮油调味<span>|</span></dt>
+            <dd><a href="/spinfo">食用油</a></dd>
+            <dd><a href="/spinfo">橄榄油</a></dd>
+            <dd><a href="/spinfo">大米</a></dd>
+            <dd><a href="/spinfo">意面</a></dd>
+            <dd><a href="/spinfo" class="dd-a">烘焙</a></dd>
+            <dd><a href="/spinfo">面食</a></dd>
+            <dd><a href="/spinfo">方便面</a></dd>
+            <dd><a href="/spinfo">罐头</a></dd>
+            <dd><a href="/spinfo">火腿肠</a></dd>
+            <dd><a href="/spinfo">速食汤</a></dd>
+          </dl>
+          <dl class="clearfix li-div-dl">
+            <dt>茶冲咖啡<span>|</span></dt>
+            <dd><a href="/spinfo" class="dd-a">速溶咖啡</a></dd>
+            <dd><a href="/spinfo">咖啡豆/粉</a></dd>
+            <dd><a href="/spinfo">咖啡伴侣</a></dd>
+            <dd><a href="/spinfo">早餐谷物</a></dd>
+            <dd><a href="/spinfo">柚子茶</a></dd>
+            <dd><a href="/spinfo">可可粉</a></dd>
+            <dd><a href="/spinfo">蜂蜜</a></dd>
+            <dd><a href="/spinfo">天然粉</a></dd>
+          </dl>
+          <dl class="clearfix li-div-dl">
+            <dt>母婴玩具<span>|</span></dt>
+            <dd><a href="/spinfo">奶粉</a></dd>
+            <dd><a href="/spinfo">婴幼儿食品</a></dd>
+            <dd><a href="/spinfo">尿裤湿巾</a></dd>
+            <dd><a href="/spinfo">营养品</a></dd>
+            <dd><a href="/spinfo">洗护清洁</a></dd>
+            <dd><a href="/spinfo">哺育喂养</a></dd>
+            <dd><a href="/spinfo" class="dd-a">孕妈</a></dd>
+            <dd><a href="/spinfo">童车安全</a></dd>
+            <dd><a href="/spinfo">玩具</a></dd>
+          </dl>
+          <dl class="clearfix li-div-dl">
+            <dt>美妆个护<span>|</span></dt>
+            <dd><a href="/spinfo">洁面卸妆</a></dd>
+            <dd><a href="/spinfo">护肤品</a></dd>
+            <dd><a href="/spinfo">面膜</a></dd>
+            <dd><a href="/spinfo">彩妆</a></dd>
+            <dd><a href="/spinfo">香水</a></dd>
+            <dd><a href="/spinfo" class="dd-a">洗发</a></dd>
+            <dd><a href="/spinfo">护发/套装</a></dd>
+            <dd><a href="/spinfo">沐浴</a></dd>
+            <dd><a href="/spinfo">洗手液</a></dd>
+            <dd><a href="/spinfo">漱口水</a></dd>
+          </dl>
+          <dl class="clearfix li-div-dl">
+            <dt>家居清洁<span>|</span></dt>
+            <dd><a href="/spinfo">餐具</a></dd>
+            <dd><a href="/spinfo">水具</a></dd>
+            <dd><a href="/spinfo">锅具</a></dd>
+            <dd><a href="/spinfo">刀具</a></dd>
+            <dd><a href="/spinfo">乳胶枕</a></dd>
+            <dd><a href="/spinfo" class="dd-a">口罩</a></dd>
+            <dd><a href="/spinfo">鲜花</a></dd>
+            <dd><a href="/spinfo">宠物用品</a></dd>
+            <dd><a href="/spinfo">清洁剂</a></dd>
+            <dd><a href="/spinfo">纸巾</a></dd>
+          </dl>
+          <dl class="clearfix li-div-dl">
+            <dt>数码家电<span>|</span></dt>
+            <dd><a href="/spinfo" class="dd-a">镜头</a></dd>
+            <dd><a href="/spinfo">耳机耳麦</a></dd>
+            <dd><a href="/spinfo">生活电器</a></dd>
+          </dl>
+        </div>
+      </li>
+      <% } %>
+    </ul>
+    <div class="banner-right">
+      <h3>快讯</h3>
+      <hr style="width: 80%;border:1px dashed #ccc"/>
+      <ul class="banner-r-ul">
+        <li><a href="#">【优选】 自己也能做炒鸡好吃的酸奶</a></li>
+        <li><a href="#">【优选】 全球超然泡面大赏，嗲!</a></li>
+        <li><a href="#">【优选】 春季宝宝防过敏</a></li>
+        <li><a href="#">【优选】 春食祭——日本樱花美食</a></li>
+        <li><a href="#">【优选】 不负春光的指尖色彩top8</a></li>
+        <li><a href="#">【优选】 养生家电，拯救春困的你</a></li>
+      </ul>
+      <h3>一元专享</h3>
+      <table class="banner-r-t" border="1" cellspacing="0" cellpadding="0" borderColor="#ccc">
+        <tr height="65px">
+          <td width="65px" class="td1"><a href="#">0元试用</a></td>
+          <td class="td2"><a href="#">0元积分兑</a></td>
+        </tr>
+        <tr>
+          <td class="td3"><a href="#">新客专享</a></td>
+          <td class="td4"><a href="#">充值中心</a></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+<!--banner结束-->
+<!--你的专属开始-->
+<div class="showtimeBox">
+  <div class="showtime w">
+    <div class="showtime-top">
+      <i class="i14"></i>
+      <i class="i14i"></i>
+      <i class="i15"></i>
+      <i class="i15i"></i>
+      <ul class="showtimeIn-ul clearfix">
+        <li><img src="/images/show1.png" alt="loading.."><p class="p1">鲜味生活 鲜虾篇</p><p class="p2">满159减60</p></li>
+        <li><img src="/images/show2.png" alt="loading.."><p class="p1">进口麦片</p><p class="p2">第二件五折</p></li>
+        <li><img src="/images/show3.png" alt="loading.."><p class="p1">冲饮咖啡</p><p class="p2">暖意陪伴</p></li>
+        <li><img src="/images/show4.png" alt="loading.."><p class="p1">洗护清洁</p><p class="p2">满99减30</p></li>
+        <li><img src="/images/show5.png" alt="loading.."><p class="p1">进口乳制品</p><p class="p2">满119减20</p></li>
+        <li><img src="/images/show6.png" alt="loading.."><p class="p1">茶叶</p><p class="p2">第二件五折</p></li>
+      </ul>
+      <ul class="showtimeIn-ul clearfix">
+        <li><img src="/images/show1.png" alt="loading.."><p class="p1">鲜味生活 鲜虾篇</p><p class="p2">满159减60</p></li>
+        <li><img src="/images/show2.png" alt="loading.."><p class="p1">进口麦片</p><p class="p2">第二件五折</p></li>
+        <li><img src="/images/show3.png" alt="loading.."><p class="p1">冲饮咖啡</p><p class="p2">暖意陪伴</p></li>
+        <li><img src="/images/show4.png" alt="loading.."><p class="p1">洗护清洁</p><p class="p2">满99减30</p></li>
+        <li><img src="/images/show5.png" alt="loading.."><p class="p1">进口乳制品</p><p class="p2">满119减20</p></li>
+        <li><img src="/images/show6.png" alt="loading.."><p class="p1">茶叶</p><p class="p2">第二件五折</p></li>
+      </ul>
+      <ul class="showtimeIn-ul clearfix">
+        <li><img src="/images/show1.png" alt="loading.."><p class="p1">鲜味生活 鲜虾篇</p><p class="p2">满159减60</p></li>
+        <li><img src="/images/show2.png" alt="loading.."><p class="p1">进口麦片</p><p class="p2">第二件五折</p></li>
+        <li><img src="/images/show3.png" alt="loading.."><p class="p1">冲饮咖啡</p><p class="p2">暖意陪伴</p></li>
+        <li><img src="/images/show4.png" alt="loading.."><p class="p1">洗护清洁</p><p class="p2">满99减30</p></li>
+        <li><img src="/images/show5.png" alt="loading.."><p class="p1">进口乳制品</p><p class="p2">满119减20</p></li>
+        <li><img src="/images/show6.png" alt="loading.."><p class="p1">茶叶</p><p class="p2">第二件五折</p></li>
+      </ul>
+    </div>
+    <div class="showtime-bottom clearfix">
+      <div class="show-t-left">
+        <h3>今日必团</h3>
+        <p class="p1">奥妙洗衣液超值套装</p>
+        <p class="p2">下单立减20元 前38名免单</p>
+        <p class="p3">￥99</p>
+        <img class="img1" src="/images/jinribituan.png" alt="loading.."/>
+      </div>
+      <div class="show-box">
+        <div class="show-t-left2a" style="border-bottom: 1px solid #CCCCCC; border-right: 1px solid #CCCCCC;">
+          <h3>乐食多国</h3>
+          <p class="p1">3件5折</p>
+          <img class="show-t-img1" src="/images/leshiduoguo.png" alt="loading.."/>
+        </div>
+        <div class="show-t-left2b" style="border-right: 1px solid #CCCCCC;">
+          <h3>特产中国 鲜橙来了</h3>
+          <p class="p1">春食伦晚澄 香甜多汁</p>
+          <img class="show-t-img2" src="/images/yunjianxiancheng.png" alt="loading.."/>
+        </div>
+      </div>
+      <div class="show-box">
+        <div class="show-t-left2c" style="border-bottom: 1px solid #CCCCCC;">
+          <h3>剁手价</h3>
+          <p class="p1">精选商品</p>
+          <img class="show-t-img3" src="/images/duoshoujia.png" alt="loading.."/>
+        </div>
+        <div class="show-t-left2d">
+          <h3>新品上市 0元试用</h3>
+          <p class="p1">多功能智能体脂称</p>
+          <img class="show-t-img4" src="/images/tizhi.png" alt="loading.."/>
+        </div>
+      </div>
+      <div class="show-t-left4" style="background: #fee3e5">
+        <h3>超级闪购</h3>
+        <p class="p1">上海故事 真丝睡衣丝巾</p>
+        <p class="p2">丝巾睡衣秒杀19.9元</p>
+        <img class="img1" src="/images/chaojishangou.png" alt="loading.."/>
+      </div>
+      <div class="show-box">
+        <div class="show-t-left2e" style="border-bottom: 1px solid #CCCCCC;">
+          <h3>手机电器械</h3>
+          <p class="p1">爱国者移动电源</p>
+          <img class="show-t-img5" src="/images/aiguozheyidongdianyuan.png" alt="loading.."/>
+        </div>
+        <div class="show-t-left2f">
+          <h3>山姆会员超市</h3>
+          <p class="p1">东北大米</p>
+          <img class="show-t-img6" src="/images/dongbeidami.png" alt="loading.."/>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--你的专属结束-->
+<!--广告区域开始-->
+<div class="adverBox">
+  <div class="adver w"></div>
+</div>
+<!--广告区域结束-->
+<!--菜单栏开始-->
+<div class="menuBox">
+  <div class="menu w">
+    <div class="menu-top">
+      <h3>进口·食品</h3>
+      <p class="menu-top-p2"></p>
+      <span class="span1">专属你的下午茶时光</span>
+      <ul class="menu-t-ul">
+        <li><a href="#">钜惠风暴</a></li>
+        <li><a href="#">进口冲饮</a></li>
+        <li><a href="#">进口酒饮</a></li>
+        <li><a href="#">进口咖啡</a></li>
+        <li><a href="#">进口茶</a></li>
+        <li style="border: none"><a href="#">进口果干</a></li>
+      </ul>
+    </div>
+    <div class="menu-bottom clearfix">
+      <div class="m-b-left">
+        <span class="m-span"><a href="#">进口牛奶</a></span>
+        <span class="m-span"><a href="#">进口饼干</a></span>
+        <span class="m-span"><a href="#">进口巧克力</a></span>
+        <span class="m-span"><a href="#">进口坚果</a></span>
+        <span class="m-span"><a href="#">进口咖啡</a></span>
+        <span class="m-span"><a href="#">进口粮油</a></span>
+        <p class="m-p1">3件5折</p>
+        <p class="m-p2">更多选择更低折扣</p>
+        <img src="/images/gengduozhekou.png" alt="loading.." class="m-img">
+      </div>
+      <div class="m-b-middle">
+        <img class="menu-b-img" src="/images/xiangshenghuo.png" alt="loading..">
+        <img class="menu-b-img" src="/images/meizhoujingxuan.png" alt="loading..">
+        <img class="menu-b-img" src="/images/pingzhinuipai.png" alt="loading..">
+      </div>
+      <ul class="m-b-middle-ul">
+        <li class="li1"><span class='menu-sprite'></span></li>
+        <li class="li2"><span class='menu-sprite'></span></li>
+        <li class="li3"><span class='menu-sprite'></span></li>
+      </ul>
+      <div class="menu-bottom-box">
+        <div class="menu-b-box">
+          <p class="b-p1">进口品质团</p>
+          <p class="b-p2">芝华士12年 229元</p>
+          <img src="/images/zhishi.png" alt="loading.." class="b-img">
+        </div>
+        <div class="menu-b-box">
+          <p class="b-p1">158减58</p>
+          <p class="b-p2">进口特惠 满百刚好</p>
+          <img src="/images/jinkoutehui.png" alt="loading.." class="b-img">
+        </div>
+      </div>
+      <div class="menu-bottom-box1">
+        <p class="b-p1">全球好奶盘点</p>
+        <p class="b-p2">爆款直降5折起</p>
+        <img src="/images/baokuan.png" alt="loading.." class="b-img1">
+      </div>
+      <div class="menu-bottom-box">
+        <div class="menu-b-box">
+          <p class="b-p1">环球零食精选</p>
+          <p class="b-p2">1元秒杀 每天开枪</p>
+          <img src="/images/huanqiulingshijingxuan.png" alt="loading.." class="b-img">
+        </div>
+        <div class="menu-b-box">
+          <p class="b-p1">进口咖啡冲饮</p>
+          <p class="b-p2">UCC咖啡 一元领</p>
+          <img src="/images/jinkoukafeichongyin.png" alt="loading.." class="b-img">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--菜单栏结束-->
+<!--footer开始-->
+<%- include('foot') %>
+<!--footer结束-->
+<!--固定顶部窗口开始-->
+<div class="searchFix">
+  <h3>所有商品分类<i class="i1f"></i><i class="i1fi"></i></h3>
+  <input type="search" placeholder="请输入关键词"/>
+  <input type="button" value="搜索"/>
+</div>
+<!--固定顶部窗口结束-->
+<!--固定右侧窗口开始-->
+<div class="rightMenu">
+  <p class="rightMenu-p1"><img src="/images/right1.png" alt="loading..">购物车</p>
+  <p class="rightMenu-p2"><img src="/images/right2.png" alt="loading.."></p>
+  <p class="rightMenu-p3"><img src="/images/right3.png" alt="loading.."></p>
+  <p class="rightMenu-p4"><img src="/images/right4.png" alt="loading.."></p>
+  <p class="rightMenu-p5"><img src="/images/right5.png" alt="loading.."></p>
+  <p class="rightMenu-p6"><img src="/images/right6.png" alt="loading.."></p>
+  <p class="rightMenu-p7"><a href="#"><img src="/images/right7.png" alt="loading.."></a></p>
+</div>
+<!--固定右侧窗口结束-->
+<script src="/js/jquery-1.11.3.min.js"></script>
+<script src="/js/index.js">
+
+</script>
+</body>
+</html>

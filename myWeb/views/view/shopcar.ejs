@@ -1,0 +1,98 @@
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<%- include('head')%>
+<div class="container w" ng-app="app" ng-controller="study" style="margin-top: 30px">
+  <table class="table">
+    <thead>
+    <tr>
+      <th>产品编号</th>
+      <th>产品名称</th>
+      <th>购买数量</th>
+      <th>商品单价</th>
+      <th>商品总价</th>
+      <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="item in product">
+      <td>{{item.id}}</td>
+      <td>{{item.name}}</td>
+      <td>
+        <button class="btn" ng-click="reduce($index)">-</button>
+        <input type="text" ng-model="item.quantity">
+        <button class="btn" ng-click="add($index)">+</button>
+      </td>
+      <td>{{item.price}}</td>
+      <td>{{item.price*item.quantity}}</td>
+      <td><button ng-click="delete()" class="btn btn-danger">移除</button></td>
+    </tr>
+    <tr>
+      <td>总价格：{{ totalPrice()}}元</td>
+      <td>总数量：{{totalQuantity()}}</td>
+      <td><button ng-click="remove()" class="btn btn-danger">全部清空</button></td>
+      <td><button><a class="btn btn-danger" href="/spinfo">继续购买</a></button></td>
+      <td><button><a class="btn btn-danger" href="/addorder">提交订单</a></button></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<!--1、先引包-->
+<script src="/js/angular.min.js"></script>
+<script>
+  var app=angular.module("app",[]);
+  app.controller("study",function($scope){
+
+    $scope.product=[
+        <% for(var i=0;i<sp.length;i++){ %>
+              {id:'<%= sp[i].sp_id %>',name:'<%= sp[i].sp_name %>',quantity:1,price:'<%= sp[i].sp_price%>'},
+
+        <% } %>
+    ];
+
+
+//        求商品的总价格
+    $scope.totalPrice=function(){
+      var total=0;
+      angular.forEach($scope.product,function(item){
+        total+=item.price*item.quantity;
+//            angular.forEach($scope.product,function(index,item){
+//                console.log(index);
+////                total+=($scope.product[index]).price*($scope.product[index]).quantity;
+      });
+      return total;
+    };
+//        商品的总数量
+    $scope.totalQuantity=function(){
+      var total=0;
+      angular.forEach($scope.product,function(item){
+        total+=parseInt(item.quantity);
+      });
+      return total;
+    };
+//        删除单项
+    $scope.delete=function(index){
+      $scope.product.splice(index,1);
+    };
+//        删除全部
+    $scope.remove=function(){
+      $scope.product=[];
+    };
+//        点击加号添加数量
+    $scope.add=function(index){
+      $scope.product[index].quantity++;
+    };
+//        点击减号减少数量
+    $scope.reduce=function(index){
+      if ($scope.product[index].quantity>1){
+        $scope.product[index].quantity--;
+      }else{
+        var info=confirm("你确定要删除吗？");
+        if(info){
+          $scope.product.splice(index,1);
+        }else{
+          $scope.product[index].quantity=1;
+        }
+      }
+    }
+  })
+</script>
+<%- include('foot') %>

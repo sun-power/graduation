@@ -1,0 +1,45 @@
+ <%- include('head') %>
+  <style>
+    .table-box{
+      width: 600px;
+      float: left;
+      height: 600px;
+      margin: 50px;
+    }
+    *{
+      margin: 0 auto;
+      padding: 0;
+    }
+    table{
+      width: 500px;
+      text-align: center;
+      border-collapse: collapse;
+    }
+    table tr th,tr td{
+      color:#000000;
+      border:1px solid #d9e0ee;
+      height: 30px;
+      line-height: 30px;
+    }
+  </style>
+  <div class="table-box">
+    <table>
+      <tr>
+        <th>id</th>
+        <th>姓名</th>
+        <th>密码</th>
+        <th>编辑</th>
+        <th>删除</th>
+      </tr>
+      <% for(var i=0;i<useinfo.length;i++){ %>
+      <tr>
+        <td><%= useinfo[i].use_id %></td>
+        <td><%= useinfo[i].use_name %></td>
+        <td><%= useinfo[i].use_password %></td>
+        <td><a href="/users/updateuse/<%= useinfo[i].use_id %>">编辑</a></td>
+        <td><a href="/users/deleteuse/<%= useinfo[i].use_id %>">删除</a></td>
+      </tr>
+      <% } %>
+    </table>
+    <div style="clear:both"></div>
+  </div>

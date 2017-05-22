@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/admin.css">
+</head>
+<body>
+<header>
+  <div class="headerIn w clearfix">
+    <ul class="headerIn-left-ul fl">
+      <li><a href="/">首页</a></li>
+      <li><a href="/users/useInfo">用户管理</a></li>
+      <li><a href="/users/classInfo">商品版块管理</a></li>
+      <li><a href="/users/spclassInfo">商品分类管理</a></li>
+      <li><a href="/users/spInfo">商品信息管理</a></li>
+      <li><a href="/users/storeinfo">店铺管理</a></li>
+      <li><a href="/users/orderinfo">物流管理</a></li>
+    </ul>
+  </div>
+</header>
+<div class="menu-right">
+  <div class="menuIn-right">
+    <ul class="menuIn-right-ul">
+      <li><a href="/users/adduse">添加用户</a></li>
+      <li><a href="/users/addclass">添加商品版块</a></li>
+      <li><a href="/users/addspclass">添加商品分类</a></li>
+      <li><a href="/users/addsp">添加商品</a></li>
+      <li><a href="/users/addstore">添加店铺</a></li>
+      <li><a href="/users/addorder">添加订单</a></li>
+    </ul>
+  </div>
+</div>
+<script src="/js/jquery-1.11.1.min.js"></script>
+<script>
+  $(function(){
+    $(".menuIn-right-ul>li").on('mouseenter',function(){
+      var index = $(this).index();
+      $(".menuIn-right-ul>li").eq(index).addClass('li').siblings().removeClass('li');
+    });
+    $(".menuIn-right-ul>li").on('mouseleave',function(){
+      $(".menuIn-right-ul > li").removeClass("li");
+    })
+  })
+</script>

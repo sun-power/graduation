@@ -1,0 +1,140 @@
+/*header开始*/
+header{
+    height: 50px;
+
+}
+.headerIn{
+    background:#D7FFFF;
+    height: 50px;
+}
+.headerIn-left-ul{
+    margin-left: 285px;
+}
+.headerIn-left-ul>li{
+    float: left;
+    padding-right:20px;
+    height: 50px;
+    line-height: 50px;
+}
+.headerIn-left-ul>li>a{
+    color: #8CAEBD;
+    font-weight: 900;
+    font-size: 20px;
+}
+/*header结束*/
+/*menu-right开始*/
+.menu-right{
+    width: 260px;
+    height: 400px;
+    background: #F0F8FB;
+    position: relative;
+    float: left;
+    left: 75px;
+    top: 0;
+}
+.menuIn-right-ul{
+    margin-top: 30px;
+}
+.menuIn-right-ul>li{
+    width: 260px;
+    text-align: left;
+    padding-left: 90px;
+    height: 50px;
+    line-height: 50px;
+}
+.li{
+    background: #DEEEFB;
+}
+/*menu-right结束*/
+/*footer开始*/
+.footIn{
+    position: relative;
+    top: -300px;
+    left: 75px;
+}
+.footIn-p1{
+    color:#000000;
+    font-size: 13px;
+    height: 20px;
+    line-height: 20px;
+    margin-top:15px;
+    margin-left: 80px;
+}
+.footIn-p2{
+    font-size: 13px;
+    margin-left: 80px;
+    height: 20px;
+    line-height: 20px;
+}
+.footIn-middle{
+    height: 200px;
+    padding: 20px 0;
+}
+.footIn-middle-left{
+    height: 152px;
+    padding-left: 50px;
+    float: left;
+}
+.footIn-middle-left dl{
+    width: 168px;
+    float: left;
+}
+.footIn-middle-left dl dt{
+    color: #666666;
+    font-size: 13px;
+    height: 32px;
+    line-height: 32px;
+    font-weight: 900;
+}
+.footIn-middle-left dl dd{
+    font-size: 13px;
+    height: 23px;
+    color: #5D5D5D;
+    line-height: 23px;
+}
+.footIn-middle-right{
+    float: left;
+}
+.footIn-middle-right-top{
+    float:left;
+    margin-right: 30px;
+}
+.footIn-middle-right-top>h3{
+    color: #666666;
+    font-size: 13px;
+    font-weight: 900;
+    margin-left: 5px;
+    height: 32px;
+    line-height: 32px;
+}
+.footIn-bottom-p1,.footIn-bottom-p2{
+    text-align: center;
+    height: 14px;
+    line-height: 14px;
+    float: left;
+    margin: 15px 105px;
+    font-size: 13px;
+}
+.footIn-bottom-p1>a,.footIn-bottom-p2>a{
+    margin: 0 5px ;
+}
+.footIn-bottom-p3{
+    text-align: center;
+    height: 14px;
+    line-height: 14px;
+    margin: 15px 365px;
+    float: left;
+    font-size: 13px;
+    color: #5D5D5D;
+}
+.footIn-bottom-div{
+    height: 60px;
+    text-align: center;
+    float: left;
+    margin-left: 135px;
+    padding: 10px 20px 0 0;
+}
+.footIn-bottom-div>a{
+    padding:0 4px;
+}
+/*footer结束*/

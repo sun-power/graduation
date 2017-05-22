@@ -1,0 +1,144 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册页面</title>
+    <style>
+        p>input{
+            border: none;
+        }
+        .middle-box p{
+            margin: 10px 0;
+            width: 300px;
+            height: 40px;
+            line-height: 40px;
+            border-radius: 5px;
+            border: 1px solid #d5d5d5;
+            position: relative;
+        }
+        .middle-box{
+            margin: auto;
+            width: 1200px;
+        }
+        .middle-box form{
+            margin-left: 450px;
+        }
+        .middle-box h1{
+            text-align: center;
+        }
+        .middle-box h3{
+            text-align: center;
+            color:red;
+            float: left;
+        }
+        .middle-box p span{
+            padding-left: 10px;
+        }
+        input{
+            outline:none;
+            padding-left: 10px;
+            background: rgba(0,0,0,0);
+        }
+        input[type="text"],input[type="password"]{
+            width: 200px;
+            height: 30px;
+            position:absolute;
+            top:5px;
+            left: 0;
+        }
+        input[type="submit"]{
+            outline:none;
+            background: #D72226;
+            width: 300px;
+            height: 40px;
+            font-size: 15px;
+            color: #fff;
+        }
+        .p2{
+            float: left;
+        }
+        .span{
+            float:left;
+        }
+        .clearfloat{
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+<div class="middle-box">
+    <h1><%= title%></h1>
+    <form action="/registerCheck">
+        <p class="p2"><span class="span1">用户名</span><input type="text" name="use_name"></p>
+        <span class="span"></span><br class="clearfloat"/>
+        <p class="p3"><span class="span2">设置密码</span><input type="password" name="use_password"></p>
+        <p class="p4"><span class="span3">确认密码</span><input type="password" name="use_repassword"></p>
+        <p style="border:none"><input type="checkbox" value="agree">点击注册，表示您同意《服务协议》</p>
+        <p style="border:none"><input type="submit" value="同意协议并注册"></p>
+    </form>
+</div>
+<script src="/js/jquery-1.11.1.min.js" type="text/javascript"></script>
+<script>
+    $(function(){
+        $('form').submit(function(){
+            if($('.p4 input').val() != $('.p3 input').val()){
+                alert('两次密码不一致!!!');
+                return false;
+            }else if($("input[type='checkbox']:checked").val() != 'agree') {
+                alert('请您仔细阅读《服务协议》，并且同意!!!');
+                return false;
+            }
+        });
+        $(".p3 input").on('blur',function(){
+            var password =/^\D+[0-9]/;
+            var pwd = $('.p3 input').val();
+            if(!password.test(pwd)){
+                alert('密码必须是以字母开头，和数字的组合!!!');
+                location.reload();
+            }
+        })
+        $(".p2 input").on('blur',function(){
+            var use_name = $(".p2 input").val();
+            var name = /^[\u4e00-\u9fa5]{1,6}$/;
+            if(!name.test(use_name)){
+                alert('用户名必须是1-6个汉字组成!!!');
+                location.reload();
+            }
+            $.ajax({
+                url:'/registerTest',
+                type:'post',
+                data: {use_name:use_name},
+                dataType:"json",
+                success: function(data){
+                    if(data[0] != null){
+                        alert('用户名已被注册，请更换');
+                        location.reload();
+                    }
+                }
+            });
+        });
+        $(".p2 input").focus(function(){
+                $(".span1").insertBefore(".p2").css({
+                    "position":"absolute",
+                    "left":"470px",
+                    "top":"105px"
+                });
+        });
+        $(".p3 input").focus(function(){
+            $(".span2").insertBefore(".p3").css({
+                "position":"absolute",
+                "left":"455px",
+                "top":"165px"
+            });
+        });
+        $(".p4 input").focus(function(){
+            $(".span3").insertBefore(".p4").css({
+                "position":"absolute",
+                "left":"455px",
+                "top":"215px"
+            });
+        });
+    });
+</script>
+</body>
+</html>

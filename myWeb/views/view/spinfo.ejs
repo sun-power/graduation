@@ -1,0 +1,173 @@
+<%- include('head') %>
+<style>
+  .container{
+    display: none;
+  }
+  .middle-content{
+    background: #FFFFFF;
+    padding-top: 20px;
+    border-top: 3px solid #FD3F49;
+  }
+  .search1{
+    width: 200px;
+    height: 30px;
+    border:1px solid #DDDDDD;
+    margin-left: 300px;
+  }
+  .content-box{
+    width: 1200px;
+    margin-top: 20px;
+  }
+  .content-ul{
+    width: 560px;
+    height: 40px;
+    margin-left: 320px;
+    background: #FAFAFA;
+  }
+  .content-ul>li{
+    float: left;
+    width: 80px;
+    line-height: 40px;
+    height: 40px;
+    text-align: center;
+  }
+  .content-ul>li>a{
+    font-size: 15px;
+  }
+  .content-ul>li>a:hover{
+    color: #FF855B;
+    font-size: 20px;
+  }
+  .content-model{
+    width: 240px;
+    float: left;
+    height: 370px;
+    padding: 5px;
+  }
+  .model-p1{
+    color: #EC5712;
+    font-weight: 900;
+  }
+  .model-p2{
+    height: 42px;
+  }
+  .model-p2>a{
+    font-size: 13px;
+  }
+  .model-p2>a:hover{
+    color: #E60012;
+  }
+  input[type='number']{
+    border:1px solid #DBDBDB;
+    width: 40px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+  }
+  .bb{
+    width: 100px;
+    height: 30px;
+    margin-left:10px;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 10px;
+    background: #FB3A29;
+    color:#FFFFFF;
+  }
+  .bb>a:hover{
+    color:#FFFFFF;
+    text-decoration: none;
+  }
+  .bb>a{
+    color: #FFFFFF;
+  }
+  .model-span1{
+    color:#7D6695 ;
+    font-size: 13px;
+  }
+  .model-span2{
+    color:#F29363 ;
+    font-size: 13px;
+  }
+  .model-span3{
+    color:#B2ABAB;
+    font-size: 13px;
+    margin-left: 20px;
+  }
+  .model-p3{
+    font-size: 13px;
+  }
+</style>
+<div class="middle-content">
+  <div class="middle-contentIn w">
+    <ul class="content-ul clearfix">
+      <li><a href="/spinfo">综合</a></li>
+      <li><a href="/number">销量↓</a></li>
+      <li><a href="/new">新品↓</a></li>
+      <li><a href="/pl">评论↓</a></li>
+      <li><a href="/price">价格↓</a></li>
+      <li><a href="/price1">价格↑</a></li>
+      <li><a href="/storeinfo">店铺</a></li>
+    </ul>
+    <div class="content-box clearfix">
+      <% for(var i = 0; i < info.length; i++){ %>
+      <div class="content-model">
+        <img src="/images/<%= info[i].sp_image %>" alt="loading..">
+        <p class="model-p1">￥<%= info[i].sp_price%></p>
+        <p class="model-p2"><a href="#">【惠民超市】<%= info[i].sp_name %></a></p>
+          <p>
+            <form action="/shopcar/<%= info[i].sp_id %>">
+              <input type="number" value="1" min="1">
+              <input type="hidden" name ='id' value="<%= info[i].sp_id %>">
+              <input class="bb" type="submit" value="加入购物车">
+            </form>
+          </p>
+        <img src="/images/pl.png" alt="loading.."><span class="model-span1"><%= info[i].sp_pl %></span>
+        <img src="/images/dz.png" alt="loading.."><span class="model-span2"><%= info[i].sp_dz %>%</span>
+        <span class="model-span3">销量<%= info[i].sp_number %></span>
+        <p class="model-p3"><%= info[i].store_name %></p>
+      </div>
+      <% } %>
+    </div>
+  </div>
+</div>
+<%- include('foot') %>
+<!--固定右侧窗口开始-->
+<div class="rightMenu">
+  <p class="rightMenu-p1"><img src="/images/right1.png" alt="loading.."><a href="/car">购物车</a></p>
+  <p class="rightMenu-p2"><img src="/images/right2.png" alt="loading.."></p>
+  <p class="rightMenu-p3"><img src="/images/right3.png" alt="loading.."></p>
+  <p class="rightMenu-p4"><img src="/images/right4.png" alt="loading.."></p>
+  <p class="rightMenu-p5"><img src="/images/right5.png" alt="loading.."></p>
+  <p class="rightMenu-p6"><img src="/images/right6.png" alt="loading.."></p>
+  <p class="rightMenu-p7"><a href="#"><img src="/images/right7.png" alt="loading.."></a></p>
+</div>
+<!--固定右侧窗口结束-->
+<script src="/js/jquery-1.11.3.min.js"></script>
+<script src="/js/index.js"></script>
+<script>
+  $(function(){
+    $(".content-model").mouseenter(function(){
+      $(this).css('border','1px solid #EAEAEA');
+    }).mouseleave(function(){
+      $(this).css('border','');
+    });
+    $('form').submit(function(){
+      var id = $("input[type='hidden']").val();
+      $.ajax({
+        url:'/shopcheck',
+        type:'post',
+        data:{id:id},
+        success:function(data){
+          if(data[0] != null){
+            alert('你已经添加此商品！');
+            location.history.back(-1);
+          }
+        }
+      })
+    })
+  })
+
+</script>
+</body>
+</html>

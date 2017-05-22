@@ -1,0 +1,86 @@
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<%- include('head') %>
+  <style>
+    .table-box{
+      width: 600px;
+      float: left;
+      height: 600px;
+      margin: 50px;
+    }
+    *{
+      margin: 0 auto;
+      padding: 0;
+    }
+    table{
+      width: 500px;
+      text-align: center;
+      border-collapse: collapse;
+    }
+    table tr th,tr td{
+      color:#000000;
+      height: 30px;
+      line-height: 30px;
+      text-align: center;
+      border:1px solid #d9e0ee;
+    }
+  </style>
+  <div class="table-box">
+    <table>
+      <thead>
+      <tr>
+        <th>id</th>
+        <th>商品版块名</th>
+        <th>编辑</th>
+        <th>删除</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% for(var i=0;i<classinfo.length;i++){ %>
+      <tr>
+        <td><%= classinfo[i].class_id %></td>
+        <td><%= classinfo[i].class_name %></td>
+        <td><a href="/users/updateclass/<%= classinfo[i].class_id %>">编辑</a></td>
+        <td><a href="/users/deleteclass/<%= classinfo[i].class_id %>">删除</a></td>
+      </tr>
+      <% } %>
+      </tbody>
+    </table>
+    <div style="width:500px;margin-left: 50px;">
+      <ul class="pagination" id="pagination1"></ul>
+    </div>
+  </div>
+<script src="/js/jquery-1.11.1.min.js"></script>
+<script src="/js/jqPaginator.js"></script>
+<script>
+  $(function(){
+    $.jqPaginator("#pagination1", {
+      totalPages: 10,
+      visiblePages: 5,
+      currentPage: 1,
+      onPageChange: function (num, type) {
+        if(type=='change'){
+          $.ajax({
+            url:'/users/classInfo1',
+            type:'post',
+            data:{num:num},
+            timeout:5000,
+            dataType:'json',
+            success:function(data,textStatus,jqXHR){
+              console.log(data);
+              $("tbody").empty();
+              for(var i=0;i<data.length;i++){
+                var tr = 	$("<tr></tr>");
+                $("<td></td>").text(data[i].class_id).appendTo(tr);
+                $("<td></td>").text(data[i].class_name).appendTo(tr);
+                $("<td></td>").html("<a href='/admin/updateclass/"+data[i].class_id+"'>修改</a>").appendTo(tr);
+                $("<td></td>").html("<a href='/admin/deleteclass/"+data[i].class_id+"'>删除</a>").appendTo(tr);
+                $("tbody").append(tr);
+              }
+            }
+          })
+        }
+
+      }
+    })
+  })
+</script>

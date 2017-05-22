@@ -1,0 +1,80 @@
+<%- include('head') %>
+<style>
+  .middle{
+    margin-top: 30px;
+  }
+  .middleIn{
+    background: #FFFFFF;
+    height: 500px;
+  }
+  .middleIn-top{
+    padding-left: 350px;
+    height: 30px;
+    border-bottom: 1px solid #F3F3F3;
+  }
+  .middleIn-top>h3{
+    height: 30px;
+    line-height: 30px;
+    color:#000;
+    font-weight: 900;
+  }
+  .middleIn-middle{
+    margin-left: 430px;
+    margin-top: 30px;
+  }
+  .middleIn-middle p{
+    width: 300px;
+    height: 50px;
+    line-height: 50px;
+    text-align: right;
+  }
+  .middleIn-middle span{
+    color: #000000;
+  }
+  s{
+    color: red;
+  }
+  input[type="text"]{
+    width: 200px;
+    height: 30px;
+    border: 1px solid #D7D7D7;
+    font-size: 15px;
+    margin-left: 10px;
+  }
+  input[type="submit"]{
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    background: red;
+    color: #FFFFFF;
+    font-size: 15px;
+    font-weight: 900;
+    border-radius: 20px;
+    margin-right: 100px;
+  }
+</style>
+<div class="middle">
+  <div class="middleIn w">
+    <div class="middleIn-top">
+      <h3><%= title%></h3>
+    </div>
+    <div class="middleIn-middle">
+      <form action="/users/addspCheck" method="post">
+        <select name="store_name">
+          <% for(var i = 0; i< info.length; i++){ %>
+          <option value="<%= info[i].store_name %>"><%= info[i].store_name %></option>
+          <% } %>
+        </select>
+        <p><span>商品名：<s>*</s></span><input type="text" name="name" ></p>
+        <p><span>商品价格：<s>*</s></span><input type="text" name="price" ></p>
+        <p><span>上传图片：<s>*</s></span><input type="file" name="image" ></p>
+        <p><span>评论数量：<s>*</s></span><input type="text" name="pl" ></p>
+        <p><span>销售数量：<s>*</s></span><input type="text" name="number" ></p>
+        <p><span>评论率：<s>*</s></span><input type="text" name="dz" ></p>
+        <p><input type="submit" value="增加"></p>
+      </form>
+    </div>
+  </div>
+</div>
+</body>
+</html>
